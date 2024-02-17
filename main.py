@@ -1,6 +1,6 @@
-from ui.authorizationWindow import AuthorizationWindow
+from app import App
 
 
 if __name__ == "__main__":
-    app = AuthorizationWindow()
-    app.mainloop()
+    app = App()
+    app.run()
