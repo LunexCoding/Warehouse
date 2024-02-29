@@ -3,9 +3,7 @@ from customtkinter import CTk, CTkButton, CTkEntry
 from database.database import databaseSession
 from database.queries import SqlQueries
 from database.tables import DatabaseTables
-
-from ui.mainWindow import MainWindow
-
+from ui.uiManager import g_UiManager
 from tools.logger import logger
 
 
@@ -46,6 +44,4 @@ class AuthorizationWindow(CTk):
         return bool(data)
 
     def openMainWindow(self):
-        self.withdraw()
-        MainWindow().mainloop()
-        self.destroy()
+        g_UiManager.createMainWindow()
