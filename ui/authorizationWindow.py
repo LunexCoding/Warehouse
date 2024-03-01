@@ -1,9 +1,9 @@
 from customtkinter import CTk, CTkButton, CTkEntry
 
+from .mainWindow import MainWindow
 from database.database import databaseSession
 from database.queries import SqlQueries
 from database.tables import DatabaseTables
-from ui.uiManager import g_UiManager
 from tools.logger import logger
 
 
@@ -11,8 +11,9 @@ _log = logger.getLogger(__name__)
 
 
 class AuthorizationWindow(CTk):
-    def __init__(self):
+    def __init__(self, uiManager):
         super().__init__()
+        self._uiManager = uiManager
 
         self.title("minimal example app")
         self.minsize(400, 300)
@@ -44,4 +45,4 @@ class AuthorizationWindow(CTk):
         return bool(data)
 
     def openMainWindow(self):
-        g_UiManager.createMainWindow()
+        self._uiManager.createWindow(MainWindow)

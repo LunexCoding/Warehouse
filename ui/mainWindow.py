@@ -2,13 +2,12 @@ from customtkinter import CTk, CTkLabel
 
 
 class MainWindow(CTk):
-    def __init__(self):
+    def __init__(self, uiManager):
         super().__init__()
+        self._uiManager = uiManager
 
         self.minsize(400, 300)
-
         self.protocol("WM_DELETE_WINDOW", self.onDestroy)
-
         self._createUIEelements()
 
     def onDestroy(self):
